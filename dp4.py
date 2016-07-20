@@ -14,3 +14,20 @@ def find_largest(line):
             largest = v
     return largest
 
+def process_file(r):
+    '''read and process reader r.'''
+    line = skip_header(r).strip()
+
+    # The largest value so far.
+    largest = find_largest(line)
+
+    # Check the rest of the lines for larger values.
+    for line in r :
+        large = find_largest(line)
+        if large > largest:
+            largest = large
+    return largest
+if __name__ == "__main__":
+    input_file = open(sys.argv[1], "r")
+    print process_file(input_file)
+    input_file.close()
