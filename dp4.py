@@ -7,7 +7,7 @@ def find_largest(line):
     largest = -1
 
     for value in line.split():
-        # Remove the trailing period (去除结尾句点)
+        # Remove the trailing period
         v = int(value[:-1])
         # If we find a larger value, remember it.
         if v > largest:
@@ -22,7 +22,7 @@ def process_file(r):
     largest = find_largest(line)
 
     # Check the rest of the lines for larger values.
-    for line in r :
+    for line in r:
         large = find_largest(line)
         if large > largest:
             largest = large
