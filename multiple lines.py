@@ -22,3 +22,5 @@ def read_molecule(r,line):
         molecule.append((type , x , y , z))
         line = r.readline()
     return molecule , line
+
+# 两层函数嵌套，下一行为 COMPND 则执行新的 read_molecule ，空行则函数停止，返回 result
