@@ -4,12 +4,16 @@
 from PIL import Image
 import argparse
 
+# handle parameter input from command line
+
 parser = argparse.ArgumentParser()
 
-parser.add_argument('file')
-parser.add_argument('-o', '--output')
-parser.add_argument('--width', type = int, default = 80)
-parser.add_argument('--height', type = int, default = 80)
+parser.add_argument('file')  # input
+parser.add_argument('-o', '--output')  # output
+parser.add_argument('--width', type = int, default = 80)  # width of output
+parser.add_argument('--height', type = int, default = 80)  # height of output
+
+# get parameter
 
 args = parser.parse_args()
 
@@ -19,6 +23,8 @@ HEIGHT = args.height
 OUTPUT = args.output
 
 ascii_char = list ("fjaoino!$#*2phrMC84_51+=';fmz/-\^")
+
+# mapping function
 
 def get_char(r, g, b, alpha = 256):
     if alpha == 0:
@@ -42,7 +48,6 @@ if __name__ == '__main__':
         txt += '\n'
 
     print txt
-
 
     if OUTPUT:
         with open(OUTPUT, 'w') as f:
