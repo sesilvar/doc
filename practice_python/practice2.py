@@ -52,7 +52,10 @@ def two_6():
 def main():
     main="two_%s"%str(argv[1])
     print main
-    exec("%s()"%main)
+    try:
+        exec("%s()"%main)
+    except:
+        print "Sorry,there is no %s"%main
 
 if __name__=="__main__":
     main()
