@@ -1,8 +1,0 @@
-Annual Number of Lynx Trapped, MacKenzie River, 1821-1934
-#Original Source
-#the ten year cycle in numbers of canadian lynx
-#this is the famous data set which ha been listed before in
-#i don't know
-  2312. 391. 231. 582. 419. 3253. 3419. 3295. 4421. 230. 3908.
-  923. 233. 211. 3412. 31. 2311. 2352. 341. 90. 409. 313. 2131.
-  321. 2311. 234. 2310. 949. 21. 31.
