@@ -58,5 +58,5 @@ make install
 
 mysql_install_db --user=mysql
 
-systemctl start mariadb #启动mariadb
-systemctl enable mariadb #设置开机自动启动mariadb
+support-files/mysql.server
+bin/mysql -uroot -h 127.0.0.1
