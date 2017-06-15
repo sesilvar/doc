@@ -59,4 +59,6 @@ make install
 mysql_install_db --user=mysql
 
 support-files/mysql.server
+export PATH=/usr/local/mariadb/bin/:$PATH
+
 bin/mysql -uroot -h 127.0.0.1
