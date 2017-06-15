@@ -1,0 +1,62 @@
+yum update
+yum install yum-utils
+yum install epel-release
+yum install jemalloc
+yum install ncurses-devel libxml2-devel openssl-devel
+yum install libaio-devel libcurl-devel libarchive-devel boost boost-devel
+yum install cmake
+
+jdk安装
+vim /etc/profile
+
+export JAVA_HOME=
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$PATH:$JAVA_HOME/bin
+
+source /etc/profile
+
+
+groupadd mysql
+useradd -g mysql mysql -s /sbin/nologin
+chown mysql:mysql /usr/local/mysql/ -R
+
+cmake . 
+-DCMAKE_INSTALL_PREFIX=/usr/local/mysql # 安装根目录 
+-DMYSQL_DATADIR=/usr/local/mysql/data # 数据存储目录 
+-DTMPDIR=/usr/local/mysql/tmp # 临时文件存放目录
+-DMYSQL_UNIX_ADDR=/usr/local/mysql/run/mysqld.sock # UNIX socket文件 
+-DSYSCONFDIR=/etc #配置文件存放目录
+-DWITH_MYISAM_STORAGE_ENGINE=1 # Myisam 引擎支持 
+-DWITH_INNOBASE_STORAGE_ENGINE=1  # innoDB 引擎支持 
+-DWITH_ARCHIVE_STORAGE_ENGINE=1 # ARCHIVE 引擎支持 
+-DWITH_BLACKHOLE_STORAGE_ENGINE=1  # BLACKHOLE 引擎支持 
+-DWITH_PERFSCHEMA_STORAGE_ENGINE=1 # PERFSCHEMA 引擎支持 
+-DWITH_FEDERATED_STORAGE_ENGINE=1  # FEDERATEDX 引擎支持 
+-DWITH_TOKUDB_STORAGE_ENGINE=1 # TOKUDB 引擎支持
+-DWITH_XTRADB_STORAGE_ENGINE=1  # XTRADB 引擎支持
+-DWITH_ARIA_STORAGE_ENGINE=1 # ARIA 引擎支持 
+-DWITH_PARTITION_STORAGE_ENGINE=1 # PARTITION 引擎支持 
+-DWITH_SPHINX_STORAGE_ENGINE=1 # SPHINX 引擎支持 
+-DWITH_READLINE=1 # readline库 
+-DMYSQL_TCP_PORT=3306 # TCP/IP端口 
+-DENABLED_LOCAL_INFILE=1  #启用加载本地数据 
+-DWITH_EXTRA_CHARSETS=all # 扩展支持编码 ( all | utf8,gbk,gb2312 | none ) 
+-DEXTRA_CHARSETS=all all # 扩展字符支持 
+-DDEFAULT_CHARSET=utf8 # 默认字符集 
+-DDEFAULT_COLLATION=utf8_general_ci # 默认字符校对 
+-DCMAKE_EXE_LINKER_FLAGS='-ljemalloc' #Jemalloc内存管理库
+-DWITH_SAFEMALLOC=OFF #关闭默认内存管理
+-DWITH_DEBUG=0
+-DENABLE_PROFILING=1
+-DWITH_SSL=system
+-DWITH_ZLIB=system
+-DWITH_LIBWRAP=0
+
+make
+make install
+
+
+mysql_install_db --user=mysql
+
+systemctl start mariadb #启动mariadb
+systemctl enable mariadb #设置开机自动启动mariadb
