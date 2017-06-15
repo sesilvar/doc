@@ -1,0 +1,7 @@
+./configure --prefix=/usr/local/php  --with-curl  --with-freetype-dir  --with-gd  --with-gettext  --with-iconv-dir  --with-kerberos  --with-libdir=lib64  --with-libxml-dir  --with-mysqli  --with-openssl  --with-pcre-regex  --with-pdo-mysql  --with-pdo-sqlite  --with-pear  --with-png-dir  --with-xmlrpc  --with-xsl  --with-zlib  --enable-fpm  --enable-bcmath  --enable-libxml  --enable-inline-optimization  --enable-gd-native-ttf  --enable-mbregex  --enable-mbstring  --enable-opcache  --enable-pcntl  --enable-shmop  --enable-soap  --enable-sockets  --enable-sysvsem  --enable-xml  --enable-zip  --with-apxs2=/usr/local/httpd2.4/bin/apxs --with-jpeg-dir
+
+./configure --prefix=/usr/local/httpd2.4 --sysconfdir=/etc/httpd2.4 --enable-so --enable-ssl --enable-rewrite --enable-cgi --with-zlib --with-pcre --with-apr=/usr/local/apr1.5/ --with-apr-util=/usr/local/apr1.5/ --with-ssl --enable-modules=most --enable-mpms-shared=all --with-mpm=event
+
+
+zabbix 410错误
+sed -i '/$last = strtolower(substr($val, -1));/a$val = substr($val,0,-1);' /home/www/zabbix/include/func.inc.php
