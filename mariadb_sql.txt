@@ -1,0 +1,30 @@
+DROP DATABASE test;
+
+CREATE TABLE emp(ename varchar(10),hiredate date,sal decimal(10,2),deptno int(2));
+DESC emp
+SHOW CREATE TABLE emp \G;
+DROP TABLE emp;
+
+ALTER TABLE emp MODIFY [COLUMN] ename vachar(20) [FIRST|AFTER sal];
+                ADD [COLUMN] age int(3) [FIRST|AFTER ename];
+				DROP [COLUMN] age;
+				CHANGE [COLUMN] sal esal decimal(10,1) [FIRST|AFTER ename];
+				
+ALTER TABLE emp RENAME [TO] emp1;
+				
+INSERT INTO emp (ename,hiredate,sal,deptno) VALUES ('ted','2017-06-16','30.22','11');
+
+UPDATE emp SET sal=4000 WHERE ename='ted';
+(UPDATE t1,t2...tn SET t1.field1=expr1,...tn.fieldn=exprn [WHERE CONDITION];)
+
+DELETE FROM emp WHERE ename='ted';
+(DELETE t1,t2...tn FROM t1,t2...tn [WHERE CONTITION];)
+
+SELECT * [sum() count() max() min()]
+FROM emp 
+[WHERE CONTITION] 
+[GROUP BY field1,...fieldn]
+[WITH ROLLUP]
+[ORDER BY ename [DESC|ASC],...fieldn[DESC|ASC]] 
+[HAVING where_contition]
+[LIMIT offset_start,row_count]
