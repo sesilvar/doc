@@ -1,0 +1,56 @@
+类型                      字节
+TINYINT                    1
+SMALLINT                   2
+MEDIUMINT                  3
+INT(INTEGER)               4
+BIGINT                     8
+FLOAT                      4
+DOUBLE                     8
+DEC(DECIMAL)(M,D)          M+2
+BIT(M)                     1-8
+
+zerofill
+AUTO_INCREMENT
+UNIQUE
+PRIMARY KEY
+
+DATE                       4
+DATETIME                   8
+TIMESTAMP                  4
+TIME                       3
+YEAR                       1
+
+
+CURRENT_TIMESTAMP
+set time_zone='+8:00'
+TIMESTAMP 会受到时区影响
+
+
+CHAR(M)                    M               M最大255
+VARCHAR(M)                 值长度+1        65535
+TINYBLOB                   +1              255
+BLOB                       +2              65535
+MEDIUMBLOB                 +3              167772150
+LONGBLOG                   +4              4294967295
+TINYTEXT                   +2              255
+TEXT                       +2              65535
+MEDIUMTEXT                 +3              167772150
+LONGTEXT                   +4              4294967295
+VARBINARY(M)               +1              M无最大值
+BINARY(M)                  M               M无最大值
+
+VARCHAR 空格结尾会保留，不是固定长度
+CHAR    空格结尾会删除，是固定长度
+
+VARBINARY 不是固定长度
+BINARY    是固定长度，会在结尾用0x00零字节补足，\0
+
+ENUM 枚举，创建表时指定范围，最多允许指定65535个成员
+255个以下占1个字节，255个以上占2个字节
+CREATE TABLE t (gender ENUM('M','F'));
+插入时忽略大小写
+插入无效值时会自动改成第一个值(mariadb 不能插入)
+
+SET 和 ENUM 类似，可以包含最多64个成员
+每8个成员占一个字节，可以一次插入多个成员，不重复
+不可插入无效值
