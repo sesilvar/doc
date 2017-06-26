@@ -1,5 +1,5 @@
-show variables like 'table_type';
-mariadb中为show variables like 'storage_engine';
+show engines;
+show variables like 'storage_engine';
 
 MyISAM
 tabalename.frm 表定义
@@ -16,3 +16,12 @@ REPAIR TABLE 修复损坏的 MyISAM 表
 压缩表（由 myisampack 工具创建）
 
 InnoDB
+
+create table autoincre \
+(id smallint not null auto_increment=0,primary key(id))\
+engine=innodb;
+
+select LAST_INSERT_ID();
+返回最后插入自动增长值的语句所使用的第一个自动增长值
+
+
