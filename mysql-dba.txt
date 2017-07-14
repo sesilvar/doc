@@ -1,0 +1,66 @@
+磁盘监控
+mysql
+
+character
+grant
+show variables like '%innodb%'
+my.cnf
+purge master logs
+auto_increment
+
+连接数 超时时间 缓存池 主从同步 
+innodb myisam memory pool timeout connect log query server net profiling
+flush privileges
+
+show engine innodb status
+
+mysqladmin
+
+gdb -p $(pidof mysqld) -ex "set opt_log_slave_updates=1"
+
+基准测试：整体测试 单独mysql测试
+
+测试指标：OLTP(TPS)QPS 响应时间 扩展性 并发性
+环境记录(配置文件，硬件，软件版本等)
+记录更多信息(CPU 磁盘IO 网络流量 show global status) 测试结果
+测试工具：
+整体 ab(apache bench) http_load jMeter loadrunner
+单独 mysqlslap sysbench sql-bench super smack
+
+schema 设计
+数据类型选择：整型 字符 日期 数值(decimal) 其他(enum set bit)
+第一范式(1NF) 
+同一列不能有多个值，不能有重复列(实体不能有重复的属性)
+第二范式(2NF)
+一个表必须有一个主键，非主键必须完全依赖于主键(可间接依赖)
+第三范式(3NF)
+非主键直接依赖于主键
+
+索引
+btree索引
+最左前缀原则(leftmost prefix of the index)
+只有先用到左边的索引，才能用后面的索引，不能跳
+范围查询以后的用不到索引
+
+聚集索引 覆盖索引
+
+sql优化  了解es查询
+1 利用 query cache 优化查询
+2 多使用 explain 看 select 语句
+3 对是否存在优化(limit)
+4 利用索引优化
+5 联表查询时候尽量数据类型相同
+6 不要使用 order by rand()
+7 避免使用 select *
+8 每个表一定要有整型主键
+9 可用 enum 代替 varchar
+10 procedure analyse() 获取建议
+11 尽量不用 NULL
+12 prepared statements
+14 整型存ip
+15 fixed-length
+16 垂直拆分
+17 列越小速度越快
+19 选择合适存储引擎
+20 短连接
+
