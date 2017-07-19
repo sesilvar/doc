@@ -1,1 +1,14 @@
-﻿
+﻿DELIMITER //
+CREATE PROCEDURE in_param(IN p_in int)
+BEGIN
+SELECT p_in;
+SET p_in=2;
+SELECT p_in;
+END
+//
+
+CREATE PROCEDURE out_param(OUT p_out int)
+BEGIN
+SELECT p_out;
+SET p_out=2;
+SELECT p
