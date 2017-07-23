@@ -1,0 +1,71 @@
+file
+f=open('txt','r+')
+f.write('abc')
+f.seek(0)
+f.readlines()
+f.tell() #位置
+f.truncate(100)截100个字符
+
+string
+s=str(a string of characters)
+s.find('name',0,21)
+s.index('string',0,21)
+s.rfind s.rindex
+s.count('s',0,21)
+s.lower()
+s.upper()
+s.swapcase()
+s.split(',',3) #以逗号切分，切3次即4段
+a='.' a.join(s.split()) #以字符串a为分隔符将列表组合成字符串
+s.startswith('a')
+s.endswith('E')
+r=s.replace(' ','')
+len(s)
+cmp('a','b')
+max(r)
+min(r)
+
+list
+l=['fda','olb','pgc']
+l.append('new')
+l.insert(1,'third') # 插入到 olb 之后
+l.remove('pgc')
+l.count('new')
+l.index('third')
+l.reverse
+l.sort
+l.extend(l2) #相当于 l+=l2
+l[0:3]
+l[-5:]
+l[:5]
+
+len(sys.argv)
+sys.argv[0] # 这是一个列表，其中第一个为文件名本身
+
+dict
+d={'a':1,'b':2,'c':'three'}
+d.get('a','null')
+d.keys()
+d.values()
+d.items()
+d.update(dict2)
+d.pop('a')
+d.popitem()
+d.setdefault('d','four')
+d1=d  #别名
+d2=d.copy() #浅复制
+import copy
+d3=copy.deepcopy(d) #深复制
+
+set
+特点：无序，不重复
+用途：关系测试，去重
+s1=set{l}
+s2={1,2,3}
+s1&s2 s1.intersection(s2)
+s1|s2 s1.union(s2)
+s1-s2 s1.difference(s2)
+s1^s2 s1.symmetric_difference(s2)
+
+
+

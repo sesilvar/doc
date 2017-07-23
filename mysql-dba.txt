@@ -64,3 +64,20 @@ sql优化  了解es查询
 19 选择合适存储引擎
 20 短连接
 
+存储过程 stored procedure
+create procedure sp_name()
+begin
+...
+end
+
+call sp_name()
+drop procedure sp_name
+show procedure status like 'sp_name'
+show create procedure sp_name
+
+delimiter
+
+触发器 trigger
+create or replace trigger t_name 
+
+自定义函数
