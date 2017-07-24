@@ -16,6 +16,7 @@ s.lower()
 s.upper()
 s.swapcase()
 s.split(',',3) #以逗号切分，切3次即4段
+s.strip()
 a='.' a.join(s.split()) #以字符串a为分隔符将列表组合成字符串
 s.startswith('a')
 s.endswith('E')
