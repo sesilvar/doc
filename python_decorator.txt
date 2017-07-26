@@ -1,0 +1,19 @@
+def outer(fun):
+  def wrapper(arg):
+    print ('wrapper')
+	result=fun(arg)
+	return result
+  return wrapper
+  
+@outer
+def fun1(arg):
+  print ('fun1'+arg)
+  return 'return fun1'
+
+#带参数的装饰器需要在外面再加一层
+def filter(a,b)
+  def ourter(fun)
+    def wrapper(arg)
+		
+@filter(a,b)
+def fun2(arg)

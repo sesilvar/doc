@@ -74,9 +74,9 @@ json.loads()
 json.load()  # read from a file
 
 eval('1+2')
-model=__import__('os') # 以字符串形式导入模块
-function=getattr(model,'uname')
-function()   # 以字符串形式使用函数
+model=__import__('os') # 以字符串形式导入模块，如果导入为目录则导入__init__.py
+function=getattr(model,'uname') # 目录，则需要先导入一次模块，再导入一次函数
+function()   # 以字符串形式导入函数
 
 hasaddr()
 getaddr()
