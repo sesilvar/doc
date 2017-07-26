@@ -1,0 +1,65 @@
+assert() # 断言
+
+pip install mysql-python(2) pymysql(3)
+
+import mysqldb(2) pymysql(3)
+
+conn=MySQLdb.connect(host='127.0.0.1',user='root',password='123',db='test')
+cur=conn.cursor(cursorclass=mysqldb.cursors.dictcursor)
+
+exc=cur.execute('select * from emp')
+
+li=[('aa',1),('b',2)]
+excm=cur.executemany('insert into emp values(%s,%s)',li)
+
+one=cur.fetchone()
+two=cur.scroll(0,mode='absolute') -1,'raletive'
+some=cur.fetchmany()
+data=cur.fetchall()
+
+lastid=cur.lastrowid # 自增id获取
+
+conn.commit()
+conn.rollback()
+
+cur.close()
+cur.close()
+
+
+UI-BLL-DAL
+
+
+socket
+
+import socket
+sk=socket.socket()
+ip_port=('127.0.0.1',9999)
+sk.bind(ip_port)
+sk.listen(5)
+
+while true
+  conn,address=sk.accept()
+  conn.send('ok')
+  flag=True
+  while flag:
+    data=conn.recv(1024)
+	print data
+	if data == 'exit':
+	  flag=False
+	conn.send('ss')
+  conn.close()
+
+import socket
+client=socket.socket()
+ip_port=('127.0.0.1',9999)
+client.connect(ip_port)
+while True:
+  data=client.recv(1024)
+  print data
+  inp=raw_input('client:')
+  client.send(inp)
+  
+  
+
+
+
