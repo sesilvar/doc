@@ -1,0 +1,23 @@
+try:
+
+  pass
+  try to do
+except Exception,e:
+  error to do
+else:
+  normal to do
+finally:
+  whenever to do
+  
+class myexception(Exception):
+  def __init__(self,msg):
+    self.error=msg
+	
+  def __str__(self,*rgs,**kwargs):
+    return self.error
+	
+er=myexception('error111')
+print er                       # __str__ 的作用
+
+raise myexception('error222')  # 手动触发自定义异常
+

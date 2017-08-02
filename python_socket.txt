@@ -60,6 +60,5 @@ while True:
   client.send(inp)
   
   
-
-
+sk.connect_ex(ip_port)
 
