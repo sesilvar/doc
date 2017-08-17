@@ -62,3 +62,13 @@ while True:
   
 sk.connect_ex(ip_port)
 
+import SocketServer
+
+class MyServer(SocketServer.BaseRequestHandler):
+  def handle(self):
+    print self.request,self.client_address,self.server
+	
+if __name__=='__main__':
+  server=SocketServer.ThreadingTCPServer(('127.0.0.1',9999),MyServer)
+  server.server_forever()
+  
