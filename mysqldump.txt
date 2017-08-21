@@ -5,3 +5,8 @@ mysqldump 逻辑备份
 单个表
 表结构
 存储过程和触发器等
+
+INSTALL SONAME 'ha_blackhole';
+
+set storage_engine = InnoDB;
+mysql -t < employees.sql

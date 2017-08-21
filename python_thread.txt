@@ -15,3 +15,8 @@ t1.setname()
 t1.IsDaemon()
 t1.setDaemon(True)
 t1.join(5) # 主线程等待5秒，不设置参数则一直等待
+
+
+multiprocessing
+
+Queue  
