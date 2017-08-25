@@ -1,4 +1,4 @@
-﻿DELIMITER //
+DELIMITER //
 CREATE PROCEDURE in_param(IN p_in int)
 BEGIN
 SELECT p_in;

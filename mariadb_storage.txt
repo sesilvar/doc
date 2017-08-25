@@ -2,18 +2,18 @@ show engines;
 show variables like 'storage_engine';
 
 MyISAM
-tabalename.frm ������
-          .MYD ����
-		  .MYI ����
-�����ļ��������ļ����Է��ڲ�ͬĿ¼
-ָ��·���ڴ�����ʱ DATA DIRECTORY �� INDEX DIRECTORY ָ��
+tabalename.frm 表定义
+          .MYD 数据
+		  .MYI 索引
+数据文件和索引文件可以放在不同目录
+指定路径在创建表时 DATA DIRECTORY 和 INDEX DIRECTORY 指定
 
-CHECK TABLE �����������
-REPAIR TABLE �޸��𻵵� MyISAM ��
+CHECK TABLE 检查表健康情况
+REPAIR TABLE 修复损坏的 MyISAM 表
 
-��̬�����̶����ȣ��洢Ѹ�٣����׻��棬���ֹ������׻ָ���ռ�ÿռ���Խϴ�ΪĬ�ϴ洢��ʽ����ȥ��β���ո�
-��̬����ռ�ÿռ���Խ��٣��ײ�����Ƭ��Ҫ���� OPTIMIZE TABLE �� myisamchk -r �������ܣ�
-ѹ�������� myisampack ���ߴ�����
+静态表（固定长度，存储迅速，容易缓存，出现故障容易恢复，占用空间相对较大，为默认存储格式，会去掉尾部空格）
+动态表（占用空间相对较少，易产生碎片，要定期 OPTIMIZE TABLE 或 myisamchk -r 改善性能）
+压缩表（由 myisampack 工具创建）
 
 InnoDB
 
@@ -22,6 +22,6 @@ create table autoincre \
 engine=innodb;
 
 select LAST_INSERT_ID();
-�����������Զ�����ֵ�������ʹ�õĵ�һ���Զ�����ֵ
+返回最后插入自动增长值的语句所使用的第一个自动增长值
 
 

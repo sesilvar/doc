@@ -1,0 +1,13 @@
+twisted
+
+pickle 序列化对象
+ 
+redis 订阅和发布
+
+con=redis.Redis(host='127.0.0.1',port=6379)
+
+con.publish('fm88','msg')
+
+pub=con.pubsub()
+pub.subscribe('fm88')
+pub.parse_response()

@@ -5,7 +5,7 @@ def Foo(arg,v):
 
 print 'before'
 
-t1=Thread(target=Foo,args=(1,11,)) # ²ÎÊıºóÃæ¼Ó¸ö¶ººÅºÍÔª×éÇø·Ö
+t1=Thread(target=Foo,args=(1,11,)) # å‚æ•°åé¢åŠ ä¸ªé€—å·å’Œå…ƒç»„åŒºåˆ†
 t1.start()
 
 print 'after'
@@ -14,9 +14,18 @@ t1.getname()
 t1.setname()
 t1.IsDaemon()
 t1.setDaemon(True)
-t1.join(5) # Ö÷Ïß³ÌµÈ´ı5Ãë£¬²»ÉèÖÃ²ÎÊıÔòÒ»Ö±µÈ´ı
+t1.join(5) # ä¸»çº¿ç¨‹ç­‰å¾…5ç§’ï¼Œä¸è®¾ç½®å‚æ•°åˆ™ä¸€ç›´ç­‰å¾…
 
 
 multiprocessing
 
-Queue  
+Queue
+
+paramiko  (demo)
+
+interactive
+
+select poll epoll
+
+shellinabox
+
