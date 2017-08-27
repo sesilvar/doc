@@ -1,0 +1,51 @@
+<head>
+
+<link rel='stylesheet' href='common.css' />
+
+<style>
+	
+	.logo{
+		background-color:red;
+	}
+	#logo{
+		background-color:red;
+	}
+	a,div{
+		background-color:red;
+	}
+	a div{
+		background-color:red;
+	}
+	.logo a,.logo p{
+		background-color:red;
+	}
+	input[type='text']{
+	}
+	
+	.logo 表示 class='logo' 的标签 
+	#logo 表示 id='logo' 的标签    
+	a,div 表示 a 标签和 div 标签
+	a div 表示 a 标签下嵌套的 div 标签
+	同理 .logo a 表示 class='logo' 的标签下嵌套的 a 标签
+	input[type='text'] 表示input 标签中 type='text' 的标签
+
+	</style>
+
+</head>
+
+<body>
+	<div style='background-color:read;'>
+	
+	
+	</div>
+
+</body>
+
+
+
+
+
+
+
+
+

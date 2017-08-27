@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+编码
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+刷新和跳转
+<meta http-equiv="refresh" content="30" />
+<meta http-equiv="refresh" content="5；url=http://www.baidu.com" />
+
+关键词
+<meta name="keywords" content="abc,dd" />
+
+<title> title </title>
+
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+
+</head>
+
+<body>
+
+块级标签
+div h1 p
+内联标签
+a span select
+
+div 和 span 都是用来分割一个区域 div 按行分割 span 行内分割
+h1-h6 标题标签，字号最大 h1，最小 h6
+p 段落标签表示内容 （和div的区别是div作为数据容器，而p为内容段落）
+a 超链接标签
+select 选项标签
+
+
+<div> piece </div>
+<span> dingding </span>
+
+各种符号表示方式
+如 &nbsp; 空格
+
+
+p 段落 br 换行 <br />
+
+<a href="http://www.baidu.com" target="_blank">baidu</a>
+<a href="#id1">ko</a>
+
+<div id='id1'>
+	<p>paragraph</p>
+</div>
+
+<h1>h1-h6</h1>
+
+<select>
+	<option value='1'>vv1</option>
+	<option value='2' selected='selected'>vv2</option>
+</select>
+
+<select size='3' multiple='multiple'>
+	<optgroup label='vvv'>
+		<option></option>
+	</optgroup>
+</select>
+
+
+
+<input type='text' />
+<input type='password' />
+<input type='checkbox' />
+<input type='radio' name='gender' />
+<input type='radio' name='gender' />
+
+<input type='button' value='button' />
+<input type='submit' value='submit' />
+
+<input type='file' />
+
+<texarea>多行输入框</texarea>
+
+<form aciton='http://127.0.0.1:8000/getdata/ method='post''>
+     name:<input type='text' />
+     <input type='submit' value='提交所在表单' />	 
+</form>
+
+<label for='name2'> 姓名 <input id='name2' type='text' /> </label>
+
+ul ol dl 列表（类似目录标题的形式）
+<ul>
+	<li>前面加点</li>
+</ul>
+
+<ol>
+    <li>前面加序号</li>
+</ol>
+
+<dl>
+	<dt> 父级列表 </dt>
+		<dd> 子列表缩进 </dd>
+</dl>
+
+表格
+<table border='1'>
+	<tr> 第一行
+		<th>标题行的列用th</th>
+	</tr>
+	<tr> 第一行
+		<td>第一行第一列</td>
+	</tr>
+	<tr> 第二行
+		<td>第二行第一列</td>
+	</tr>
+</tab le>
+		
+<table>		
+	<thead>
+	</thead>
+	表格中的 head 和 body 用来区分一下 
+	<tbody>
+	</tbody>
+</table>
+
+<table>
+	<tr>
+		<td colspan='2'>左右合并占用2列</td>
+		<td rowspan='2'>上下合并占用2行</td>
+	</tr>
+</table>
+
+<fieldset>画一个框
+	<legend>框上有个标题</legend>
+	<p>框里的内容</p>
+</fieldset>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
