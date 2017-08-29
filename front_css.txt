@@ -41,6 +41,44 @@
 
 </body>
 
+背景
+<div style='background-color:read;'></div>
+
+'background-img:url(image/4.gif);height;80px;background-repeat:no-repeat;background-position:10px 10px;'
+'background:url(image/5.gif) 10px 20px no-repeat;height:20px;width:20px;'
+
+边框
+style='border:1px solid red;'
+
+外边距   内边距
+margin   padding
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
