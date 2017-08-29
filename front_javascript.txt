@@ -1,0 +1,5 @@
+<script src='js/old.js'> </script>
+
+<script type='text/javascript'> alert('alex') </script>
+
+js放到 <body></body> 最下方，保证先加载html
