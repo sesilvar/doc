@@ -53,7 +53,19 @@ style='border:1px solid red;'
 外边距   内边距
 margin   padding
 
+display
+none 隐藏对象 block 块级对象 inline 内联对象
 
+cursor 光标效果
+pointer help wait move crosshair
+
+float:left;width:50%
+漂浮
+
+clearfix clear:both
+
+position
+fixed 整个页面位置固定 relative 父标签中设置 absolute 子标签在父标签中相对位置
 
 
 
