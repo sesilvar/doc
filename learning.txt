@@ -1,0 +1,31 @@
+c c++
+java
+php
+
+oracle
+mysql
+
+数学分析新讲 张筑生 实分析前一两章 陶哲轩
+最优化导论 Edwin.K.P.Chong  进阶 凸优化
+线性代数 网易云音乐
+概率论与谁统计 陈希孺
+统计决策理论和贝叶斯分析
+贝叶斯统计 茆诗松
+统计学习方法 李航
+离散数学
+数据结构
+算法
+
+python
+
+爬虫 scrapy 
+web开发 django flask tornado
+深度学习 tensorflow keras
+
+英语
+日语
+韩语
+西班牙语
+
+均衡负载 lvs
+nginx

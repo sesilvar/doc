@@ -2,4 +2,88 @@
 
 <script type='text/javascript'> alert('alex') </script>
 
-js放到 <body></body> 最下方，保证先加载html
+js放到 <body></body> 内部最下方，保证先加载html
+
+定义变量和函数
+
+name = 'alex'      全局变量
+window.name='alex'
+
+var name = 'alex'     局部变量
+
+function Foo(name){
+	var arg2 = arguments[1];
+	console.log(name);
+	console.log(arg2);
+}
+
+Foo('alex')
+
+匿名函数
+
+var temp = function(){
+
+}
+
+自执行函数
+
+(function(){
+
+})()
+
+obj.charAt(index)
+obj.substring(start,end)
+obj.indexOf(char)
+obj.length
+
+var arry=Array(1,2,3,4)
+var arry=[1,2,3,4]
+
+arry.splice(index,0,content)
+arry.push()
+arry.unshift()
+arry.pop()
+arry.shift()
+arry.splice(index,count)
+arry.slice(start,end)
+arry.concat(obj2)
+arry.reverse()
+arry.join('__')
+arry.length
+
+var arr=[11,22,33,44,55];
+var dict={'name':'alex','age':19};
+
+for(var item in arr) {
+	console.log(item);
+}
+
+for(var i=0;i<arr.length;i++){
+	console.log(arr[i]);
+}
+
+
+
+
+
+
+http://www.cnblogs.com/wupeiqi/articles/4457274.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
