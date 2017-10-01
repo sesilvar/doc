@@ -67,8 +67,7 @@ clearfix clear:both
 position
 fixed 整个页面位置固定 relative 父标签中设置 absolute 子标签在父标签中相对位置
 
-
-
+透明度 opacity
 
 
 
