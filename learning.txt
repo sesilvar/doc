@@ -29,3 +29,7 @@ web开发 django flask tornado
 
 均衡负载 lvs
 nginx
+
+http://blog.csdn.net/cangchen/article/details/45673223
+http://blog.csdn.net/u013065023/article/details/54964275#t1
+https://my.oschina.net/BearCatYN/blog/476748
