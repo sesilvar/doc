@@ -1,0 +1,21 @@
+from bs4 import BeautifulSoup
+
+html=urllib2.urlopen('www.baidu.com')
+bs1 = BeautifulSoup(html.read(), 'html.parser')
+
+title1 = bs1.findall('span', {'class': 'green'})
+title1 = bs1.find('table', {'id': 'giftList'}).descendants
+title1 = bs1.find('table', {'id': 'giftList'}).children
+# children 为子标签 descendants 为递归后代标签
+
+trs = bs1.find('table',{'id':'giftList'}).tr.next_siblings
+trs = bs1.find('table',{'id':'giftList'}).tr.previous_siblings
+# 向后和向前的兄弟标签 next_sibling 只返回单个
+
+parent 父节点 parents 递归上级节点
+
+myTag.attrs['src']
+获取标签属性
+
+import re
+正则表达式
