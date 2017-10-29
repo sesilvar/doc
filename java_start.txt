@@ -1,0 +1,46 @@
+System.out.println("hello");
+
+char
+int
+float
+double
+string 
+
+if (a>b) {
+	
+}
+else if () {
+
+}
+else{
+
+}
+
+switch () {
+	case 1:
+		System.out.println("value1");
+		break;
+	case 2:
+		System.out.println("value2");
+		break;
+	case 3:
+	case 4:
+		System.out.println("value3");
+		break;
+	default:
+		System.out.println("value default");
+}
+
+while () {
+	
+}
+
+do {
+
+} while ();
+
+for (int i = 1; i <= 1000; i++) {
+	System.out.println("do something");
+}
+
+
