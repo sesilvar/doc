@@ -1,0 +1,104 @@
+oracle server
+数据库database 是物理文件，包括数据文件、控制文件、重做日志文件
+实例instance 是一系列内存结构和系统进程 包括有数据库后台进程（PMON、SMON、DBWR、LGWR、CKPT等）和内存区域SGA（包括shared pool、db buffer cache、redo log buffer等）。
+
+export ORACLE_SID=ora11g
+sqlplus / as sysdba
+
+参数文件 $ORACLE_HOME/dbs/init${ORACLE.SID}.ora
+
+
+ipcs 列出 ipcrm 删除
+-m共享内存，-s共享信号量，-q共享队列
+
+lsnrctl status
+
+select name from v$datafile;
+select member from v$logfile;
+select name from v$controlfile;
+
+
+select se.username,se.sid,su.extents,su.blocks*to_number(rtrim(p.value))as    Space,tablespace,segtype,sql_text
+from v$sort_usage su,v$parameter p,v$session se,v$sql s
+where p.name='db_block_size' and su.session_addr=se.saddr and s.hash_value=su.sqlhash and s.address=su.sqladdr
+order by se.username,se.sid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.生成单实例 AWR 报告：
+
+
+@$ORACLE_HOME/rdbms/admin/awrrpt.sql
+
+
+2.生成 Oracle RAC AWR 报告：
+
+
+@$ORACLE_HOME/rdbms/admin/awrgrpt.sql
+
+
+3.生成 RAC 环境中特定数据库实例的 AWR 报告:
+
+
+@$ORACLE_HOME/rdbms/admin/awrrpti.sql
+
+
+4.生成 Oracle RAC 环境中多个数据库实例的 AWR 报告的方法：
+
+
+@$ORACLE_HOME/rdbms/admin/awrgrpti.sql
+
+
+5.生成 SQL 语句的 AWR 报告：
+
+
+@$ORACLE_HOME/rdbms/admin/awrsqrpt.sql
+
+
+6.生成特定数据库实例上某个 SQL 语句的 AWR 报告：
+
+
+@$ORACLE_HOME/rdbms/admin/awrsqrpi.sql
+
+
+--生成 AWR 时段对比报告
+
+
+7.生成单实例 AWR 时段对比报告
+
+
+@$ORACLE_HOME/rdbms/admin/awrddrpt.sql
+
+
+9.生成 Oracle RAC AWR 时段对比报告
+
+
+@$ORACLE_HOME/rdbms/admin/awrgdrpt.sql
+
+
+10.生成特定数据库实例的 AWR 时段对比报告
+
+
+@$ORACLE_HOME/rdbms/admin/awrddrpi.sql
+
+
+11.生成 Oracle RAC 环境下特定（多个）数据库实例的 AWR 时段对比报告
+
+
+@$ORACLE_HOME/rdbms/admin/awrgdrpi.sql
