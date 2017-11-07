@@ -31,10 +31,11 @@ UI-BLL-DAL
 
 socket
 
-import socket
-sk=socket.socket()
+# 服务器端
+import soc ket
+sk=socket.socket(socket.AF_INET,socket.SOCK_STREAM) # socket.AF_INET6, socket.SOCK_DGRAM 为ipv6和udp用不可靠连接
 ip_port=('127.0.0.1',9999)
-sk.bind(ip_port)
+sk.bind(ip_port) # 注意这里变量类型为元祖
 sk.listen(5)
 
 while true
@@ -49,6 +50,7 @@ while true
 	conn.send('ss')
   conn.close()
 
+# 客户端
 import socket
 client=socket.socket()
 ip_port=('127.0.0.1',9999)

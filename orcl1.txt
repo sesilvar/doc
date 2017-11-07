@@ -5,8 +5,8 @@ oracle server
 export ORACLE_SID=ora11g
 sqlplus / as sysdba
 
-参数文件 $ORACLE_HOME/dbs/init${ORACLE.SID}.ora
-
+参数文件 $ORACLE_HOME/dbs/init${ORACLE_SID}.ora
+startup nomount
 
 ipcs 列出 ipcrm 删除
 -m共享内存，-s共享信号量，-q共享队列
@@ -17,29 +17,74 @@ select name from v$datafile;
 select member from v$logfile;
 select name from v$controlfile;
 
+SGA 系统全局区
+
+维护所有进程需要访问的多种内部数据结构
+缓存磁盘上的数据，另外重做数据写至磁盘之前先在这里缓存
+保存已解析的SQL计划，等等
+
+专用服务器
+客户端连接请求发送给TNS监听器，监听器直接fork 出一个专用服务器进程，客户端重定向到专用服务器进程
+共享服务器 (调度程序将请求放入SGA的请求队列，共享服务器处理后放入响应队列返回调度程序)
+TNS监听器从可用的调度程序池中选择一个调度程序进程并向客户端返回连接信息。客户与监听器断开，并与调度程序直接连接。
+TNS代表透明网络底层(Transparent Network Substrate)
+
+show parameter db_block_s;
+select value from v$parameter;
+
+非dba用户可通过所有用户使用的 api 查看
+
+create or replace function get_param(p_name in varchar2)
+return varchar2
+as
+	l_param_type	number;
+	l_intval				binary_integer;
+	l_strval				varchar2(256);
+	invalid_parameter	exception;
+	pragma	exception_init(invalid_parameter, -20000);
+begin
+	begin
+		l_param_type :=
+		dbms_utility.get_parameter_value
+		(parnam => p_name,
+			intval => l_intval,
+			strval => l_strval);
+	exception
+		when invalid_parameter
+		then
+			return	'*access denied*';
+	end;
+	if (l_param_type = 0)
+	then
+		l_strval := to_char(l_intval);
+	end if;
+	return l_strval;
+end get_param;
+/
+
+exec dbms_output.put_line(get_param('db_block_size'));
+
+select name, scott.get_param(name) val from v$parameter where scott.get_param(name) = '*access denied*';
+
+
+
+
+
+
+
+
+
+
+
 
 select se.username,se.sid,su.extents,su.blocks*to_number(rtrim(p.value))as    Space,tablespace,segtype,sql_text
 from v$sort_usage su,v$parameter p,v$session se,v$sql s
 where p.name='db_block_size' and su.session_addr=se.saddr and s.hash_value=su.sqlhash and s.address=su.sqladdr
 order by se.username,se.sid
 
+select l.session_id sid, s.serial#,  l.locked_mode, l.oracle_username, l.os_user_name, s.machine, s.terminal,  o.object_name, s.logon_time   from v$locked_object l, all_objects o, v$session s  where l.object_id = o.object_id  and l.session_id = s.sid  order by sid, s.serial#;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+select sql_text, disk_reads from (select sql_text, disk_reads from v$sqlarea order by disk_reads desc)  where rownum< 21;
 
 1.生成单实例 AWR 报告：
 
