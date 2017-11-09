@@ -4,10 +4,10 @@ char
 int
 float
 double
-string 
+string
 
 if (a>b) {
-	
+
 }
 else if () {
 
@@ -32,7 +32,7 @@ switch () {
 }
 
 while () {
-	
+
 }
 
 do {
@@ -43,4 +43,40 @@ for (int i = 1; i <= 1000; i++) {
 	System.out.println("do something");
 }
 
+int[] score = {32,22,31};
+score = new int[5];
+String[] words = new String[] {"one", "two", "three"};
+String[] words = new String[3];
+System.out.println(words.length);
 
+
+import java.util.Arrays;
+Arrays.sort(words);
+Arrays.toString(score);
+
+# foreach
+for (int onescore : score) {
+	System.out.println(onescore);
+}
+
+String[][] words = new String[3][];
+# 二维数组至少需要定义行数
+
+访问修饰符
+public
+protected
+private
+
+返回值类型
+void # 不返回任何值
+
+public void function1(args) {
+
+}
+
+public class Hello{
+	Hello hh = new Hello();
+}
+
+int num = (int)(Math.random()*100);
+# (int)用于强制类型转换
