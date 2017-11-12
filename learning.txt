@@ -1,7 +1,7 @@
 c c++
 java
+R
 go
-php
 
 oracle
 mysql
@@ -19,7 +19,7 @@ mysql
 
 python
 
-爬虫 scrapy 
+爬虫 scrapy
 web开发 django flask tornado
 深度学习 tensorflow keras
 

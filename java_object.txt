@@ -13,6 +13,34 @@ public class Cellphone {
 
 static int score = 32
 
+public class Cellphone {
+  public Telphone() {
+    System.out.println("constructor");
+  }
+  pubflic Telphone(int N1) {
+    System.out.println("contructor" + N1);
+  }
+}
+
+
 静态变量
+可以直接通过类调用静态变量，不需要实例化对象
+public static String name = "something";
+
 静态方法
+直接通过类调用，静态方法中只能调用同类中的静态变量，普通变量需要实例化后才能调用
+public static void fun1() {
+
+}
+
 静态初始化块
+普通初始化块可以初始化普通变量，静态初始化块只能初始化静态变量
+静态初始化块只在类加载时执行，且只会执行一次
+int i;
+static int j;
+{
+  i = 20;
+}
+static {
+  j = 30;
+}
