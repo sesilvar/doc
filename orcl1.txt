@@ -1,3 +1,5 @@
+oracle database reference
+
 oracle server
 数据库database 是物理文件，包括数据文件、控制文件、重做日志文件
 实例instance 是一系列内存结构和系统进程 包括有数据库后台进程（PMON、SMON、DBWR、LGWR、CKPT等）和内存区域SGA（包括shared pool、db buffer cache、redo log buffer等）。
@@ -29,6 +31,7 @@ SGA 系统全局区
 TNS监听器从可用的调度程序池中选择一个调度程序进程并向客户端返回连接信息。客户与监听器断开，并与调度程序直接连接。
 TNS代表透明网络底层(Transparent Network Substrate)
 
+查看参数的两种方式
 show parameter db_block_s;
 select value from v$parameter;
 
@@ -66,6 +69,26 @@ exec dbms_output.put_line(get_param('db_block_size'));
 
 select name, scott.get_param(name) val from v$parameter where scott.get_param(name) = '*access denied*';
 
+sql_trace timed_statistics tkprof
+这几个程序是做什么的？
+
+有记录参数 documented
+无记录参数 undocumented 用下划线 _ 开头
+
+遗留的init.ora
+$ORACLE_HOME/dbs/init${ORACLE_SID}.ora
+control_files = 'home/ora11gr2/app/ora11gr2/oradata/orcl/control01.ctl','home/ora11gr2/app/ora11gr2/flash_recovery_area/orcl/control02.ctl'
+db_block_size = 8192
+db_name = 'orcl'
+
+IFILE = ./init.ora
+包含另一个文件的内容
+启动实例时，可以在启动命令上使用
+pfile = filename
+设置不同的init.ora
+这个文件不一定在服务器上，可能在客户机上
+
+SPFILE server parameter file 
 
 
 
@@ -75,15 +98,16 @@ select name, scott.get_param(name) val from v$parameter where scott.get_param(na
 
 
 
-
-
+锁语句查询
 select se.username,se.sid,su.extents,su.blocks*to_number(rtrim(p.value))as    Space,tablespace,segtype,sql_text
 from v$sort_usage su,v$parameter p,v$session se,v$sql s
 where p.name='db_block_size' and su.session_addr=se.saddr and s.hash_value=su.sqlhash and s.address=su.sqladdr
 order by se.username,se.sid
 
+锁对象查询
 select l.session_id sid, s.serial#,  l.locked_mode, l.oracle_username, l.os_user_name, s.machine, s.terminal,  o.object_name, s.logon_time   from v$locked_object l, all_objects o, v$session s  where l.object_id = o.object_id  and l.session_id = s.sid  order by sid, s.serial#;
 
+读取磁盘语句
 select sql_text, disk_reads from (select sql_text, disk_reads from v$sqlarea order by disk_reads desc)  where rownum< 21;
 
 1.生成单实例 AWR 报告：
