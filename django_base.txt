@@ -1,0 +1,51 @@
+服务器程序和应用程序
+WSGI
+
+socket封装
+wsgiref
+
+MVC:Model View Controller
+
+model          数据库相关
+view           html页面
+controller     处理请求
+
+
+MTV:Model Template View
+
+template   html页面
+view       处理请求
+
+
+
+路由系统
+
+
+class test:
+	def __str__(self):
+		return 'this is in str'
+st = test()
+print st
+# __str__  直接打印对象的实现方法
+
+models 中的类相当于数据库中的 table
+models 中的每个属性是数据库中的一个字段(一个列)
+
+from django.db import models
+
+class Reporter(models.Model):
+    full_name = models.CharField(max_length=70)
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.full_name
+
+class Article(models.Model):
+    pub_date = models.DateField()
+    headline = models.CharField(max_length=200)
+    content = models.TextField()
+    reporter = models.ForeignKey(Reporter, on_delete=models.CASCADE)
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.headline
+		
+http://usyiyi.cn/translate/Django_111/intro/overview.html
