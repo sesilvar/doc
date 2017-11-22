@@ -31,6 +31,9 @@ print st
 models 中的类相当于数据库中的 table
 models 中的每个属性是数据库中的一个字段(一个列)
 
+
+models.py
+
 from django.db import models
 
 class Reporter(models.Model):
@@ -47,5 +50,37 @@ class Article(models.Model):
 
     def __str__(self):              # __unicode__ on Python 2
         return self.headline
-		
-http://usyiyi.cn/translate/Django_111/intro/overview.html
+
+admin.py
+
+from django.contrib import admin
+from . import models
+
+admin.site.register(models.Article)
+# 注册模型动态生成管理页面
+
+urls.py
+
+from django.conf.urls import url
+from . import views
+
+urlpatterns = [
+	url(r'^articles/([0-9]{4})/$', views.year_archive),
+	url(r'^articles/([0-9]{4})/([0-9],{2})/$', views.month_archive),
+	url(r'^admin/', admin.site.urls),
+	]
+# urlconf 如果请求url为 ／articles/2005/05/ 则调用函数 news.views.month_archive(request, '2005', '05')
+
+views.py
+
+from django.shortcuts import render
+from .models import Article
+
+def year_archive(request, year):
+	a_list = Article.objects.filter(pub_date_year=year)
+	context = {'year': year, 'article_list': a_list}
+	return render(request, 'news/year_archive.html', context)
+# 每个视图只负责返回 httpresponse 对象或者抛出一个异常。
+
+url()
+regex view kwargs name
