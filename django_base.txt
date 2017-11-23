@@ -50,12 +50,6 @@ class Article(models.Model):
 
     def __str__(self):              # __unicode__ on Python 2
         return self.headline
-<<<<<<< HEAD
-		
-migration 迁移
-
-
-=======
 
 admin.py
 
@@ -91,4 +85,36 @@ def year_archive(request, year):
 url()
 regex view kwargs name
 
-df:
+settings.py
+
+INSTALLED_APPS = [
+    'django.contrib.admin',  # 管理站点
+    'django.contrib.auth',  # 认证系统
+    'django.contrib.contenttypes',  # 用于内容类型的框架
+    'django.contrib.sessions',  # 会话框架
+    'django.contrib.messages',  # 消息框架
+    'django.contrib.staticfiles',  # 管理静态文件的框架
+    'app1.apps.App1Config', # 新建的app
+]
+
+# Django 会从 MIDDLEWARE_CLASSES 中按照从上到下的顺序一个个执行中间件中的 process_request 函数，而其中 process_response 函数则是最前面的最后执行。
+# process_request()
+# process_exception() (only if the view raised an exception)
+# process_template_response()
+# process_response()
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+migration 迁移
+python manage.py makemigrations	# app1/migrations/0001_initial.py 生成迁移文件
+python manage.py sqlmigrate app1 0001	# 查看迁移文件的SQL语句
+python manage.py migrate	# 将改变更新到数据库中
+
