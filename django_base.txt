@@ -48,4 +48,6 @@ class Article(models.Model):
     def __str__(self):              # __unicode__ on Python 2
         return self.headline
 		
-http://usyiyi.cn/translate/Django_111/intro/overview.html
+migration 迁移
+
+

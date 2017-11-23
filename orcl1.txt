@@ -88,7 +88,17 @@ pfile = filename
 设置不同的init.ora
 这个文件不一定在服务器上，可能在客户机上
 
-SPFILE server parameter file 
+SPFILE server parameter file
+
+create table as select ... from ...
+引发错误
+ORA-00600
+bug解决办法
+alter session set "_pred_move_around"=FALSE; #这个办法不好
+where ... and rownum>-1 #完美解决
+
+
+
 
 
 
