@@ -118,3 +118,20 @@ python manage.py makemigrations	# app1/migrations/0001_initial.py 生成迁移�
 python manage.py sqlmigrate app1 0001	# 查看迁移文件的SQL语句
 python manage.py migrate	# 将改变更新到数据库中
 
+def __str__():
+	return self.question_text
+
+imporrt django
+django.setup()
+# 效果相当于 python manage.py shell
+# 需要先设置环境变量 DJANGO_SETTINGS_MODULE=dj1.settings,
+# 需要确保 python path 可以运行 import dj1
+
+app1/admin.py
+from django.contrib import admin
+from .models imporrt Question
+
+admin.site.registerr(Question)
+
+127.0.0.1:8000/admin
+python manage.py runserver
