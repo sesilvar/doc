@@ -18,7 +18,7 @@ REPAIR TABLE 修复损坏的 MyISAM 表
 InnoDB
 
 create table autoincre \
-(id smallint not null auto_increment=0,primary key(id))\
+(id smallint not null auto_increment,primary key(id))\
 engine=innodb;
 
 select LAST_INSERT_ID();
