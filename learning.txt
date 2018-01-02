@@ -2,6 +2,7 @@ c c++
 java
 R
 go
+python
 
 oracle
 mysql
@@ -23,10 +24,9 @@ python
 web开发 django flask tornado
 深度学习 tensorflow keras
 
-英语
-日语
-韩语
-西班牙语
+英语 三级笔译
+日语 N1
+西班牙语 入门
 
-均衡负载 lvs
-nginx
+软考高级项目管理
+中级信息安全
