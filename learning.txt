@@ -1,28 +1,39 @@
-c c++
-java
-R
-go
-python
+c primer plus 
+java 核心技术
+R 语言实战
 
-oracle
-mysql
+oracle 编程艺术
+ocp认证考试指南全册
+高性能mysql第三版
 
-数学分析新讲 张筑生 实分析前一两章 陶哲轩
-最优化导论 Edwin.K.P.Chong  进阶 凸优化
-线性代数 网易云课堂
+机器学习
+数据挖掘核心技术揭秘
+django 文档
+python 网络数据采集
+flask web开发
+
+代码大全2
+大数据时代
+点石成金
+
+数学分析新讲 张筑生 
+实分析前一两章 陶哲轩
+最优化导论 Edwin.K.P.Chong  
+凸优化 王书宁
+线性代数
 概率论与数理统计 陈希孺
 统计决策理论和贝叶斯分析
 贝叶斯统计 茆诗松
 统计学习方法 李航
 离散数学
 数据结构
-算法
+算法 第四版
 
-python
 
-爬虫 scrapy
+爬虫 scrapy 
 web开发 django flask tornado
-深度学习 tensorflow keras
+深度学习 tensorflow pytorch
+文档
 
 英语 三级笔译
 日语 N1
