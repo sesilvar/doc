@@ -39,5 +39,5 @@ web开发 django flask tornado
 日语 N1
 西班牙语 入门
 
-软考高级项目管理
+软考系统分析师
 中级信息安全
