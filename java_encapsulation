@@ -1,0 +1,77 @@
+// 封装
+// 包的分层用 "."
+系统中的包
+java.功能.类
+java.lang.类 // 包含 java 语言基础的类
+java.util.类 // 包含各种工具类
+java.io.类 // 包含输入输出相关功能的类
+
+
+package encapsulation.test;
+public class People {
+    private double height;
+  // 在这个属性（成员变量）前加了修饰符 private
+  // 成为私有属性，必须通过方法调用
+    public double getHeight(){
+        return height;
+    }
+    public double setHeight(double newHeight){
+        height = newHeight;
+    }
+  // getter 和 setter 方法名为 get 和 set 关键字加属性名（首字母大写）
+  // getter 方法一般是为了得到属性值，setter 方法一般是给属性赋值，所以要加一个参数
+}
+
+访问修饰符的访问范围
+public        所有类可见
+protected     同一包内的类和所有子类可见
+              默认当前类中和同一包下都可以访问和使用，子类不可见
+private       只能在当前类中访问或使用
+
+// this.属性 操作当前对象的属性
+// this.方法 调用当前对象的方法
+this 用来解决成员变量和局部变量之间发生的同名冲突问题
+public void setAge(int age){
+    this.age = age;
+}
+
+// 内部类：将一个类的定义放在另一个类的内部
+package test;
+// 外部类 People
+public class People {
+    private String name = "LiLei";
+    private static String ID = "23122";
+
+    // 成员内部类 Student1
+    public class Student1 {
+        String ID = "132313";
+        public void stuInfo(){
+            System.out.println("外部类中的name：" + name);
+            System.out.println("内部类中的ID：" + ID);
+        }
+    }
+    // 静态内部类 Student2
+    public static class Student2 {
+        String ID = "213213";
+        public void stuInfo(){
+            System.out.println("外部类中的name：" + (new People().name));
+            System.out.println("外部类中的ID：" + People.ID);
+            System.out.println("内部类中的ID：" + ID);
+        }
+    }
+
+
+    public static void main(String[] args) {
+        People a = new People();
+        Student b = a.new Student1();
+        Student c = new Student2();
+        b.stuInfo();
+        c.stuInfo();
+    }
+}
+
+// 成员内部类 对象名 = 外部类对象.new 内部类();
+// 内部类中要访问外部类的成员变量，相同名可以使用 People.this.name
+// 静态内部类直接创建对象，调用成员变量需要 new 外部类().成员 静态成员可以 类名.静态成员
+// 局部内部类 定义在方法和作用域内，方法要创建内部类的对象
+// 匿名内部类 只能使用一次 必须继承父类或实现一个接口？？？

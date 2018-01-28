@@ -1,0 +1,7 @@
+1. 开闭原则 open close
+2. 里氏代换原则 liskov substitution
+3. 依赖倒转原则 dependence inversion
+4. 接口隔离原则 interface segregation
+5. 单一职责原则 single responsibility
+6. 最少知道原则 Demeter
+7. 合成复用原则 composite reuse

@@ -1,3 +1,8 @@
+// 类名和接口名：每个字词首字母大写
+// 方法名，变量名：驼峰式
+// 常量名： 大写 final int SCORE=100;
+
+
 System.out.println("hello");
 
 char
@@ -61,11 +66,6 @@ for (int onescore : score) {
 
 String[][] words = new String[3][];
 # 二维数组至少需要定义行数
-
-访问修饰符
-public
-protected
-private
 
 返回值类型
 void # 不返回任何值

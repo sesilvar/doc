@@ -1,4 +1,9 @@
 object
+// 局部变量：方法，构造方法中定义的变量
+// 成员变量：定义在类中，方法体之外的变量，创建对象时实例化
+// 静态变量：static 类型的成员变量
+
+类名 对象名 = new 类名();
 
 class
 attribute
@@ -14,10 +19,10 @@ public class Cellphone {
 static int score = 32
 
 public class Cellphone {
-  public Telphone() {
+  public Cellphone() {
     System.out.println("constructor");
   }
-  pubflic Telphone(int N1) {
+  pubflic Cellphone(int N1) {
     System.out.println("contructor" + N1);
   }
 }
