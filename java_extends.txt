@@ -23,3 +23,47 @@ super.useTools()
 super(int i) 调用父类参数为一个整型的构造函数
 
 
+多态实现的三个必要条件：继承，重写，向上转型（父类引用指向子类对象）
+多台实现方式：继承父类进行方法重写，抽象类和抽象方法，接口实现。
+Animal a= new Dog();
+
+抽象方法：仅有声明而没有方法体
+抽象类：包含抽象方法的类，前面要加abstract
+
+abstract class A{
+    public void fun(){
+        System.out.println("normal function")
+    }
+    public abstract void afun();
+}
+
+@Override //伪代码，编译器会检查方法名是否存在于父类中，如果没有则报错
+
+接口是一个完全抽象类，不提供任何方法体
+
+修饰符 interface 接口名称 [extends 其他接口]{
+    // 声明变量
+    // 抽象方法
+}
+
+interface Animal {
+    int y=5;
+    public void eat();
+    public void travel();
+}
+
+接口不能用于实例化对象
+接口中所有的方法是抽象方法
+接口成员是 static final 类型
+接口支持多继承
+
+修饰符 interface A extends 接口1, 接口2 {
+    ...
+}
+
+修饰符 class A implements 接口1, 接口2 {
+    ...
+}
+
+
+
