@@ -37,7 +37,7 @@ abstract class A{
     public abstract void afun();
 }
 
-@Override //伪代码，编译器会检查方法名是否存在于父类中，如果没有则报错
+@Override //伪代码，重写方法，编译器会检查方法名是否存在于父类中，如果没有则报错
 
 接口是一个完全抽象类，不提供任何方法体
 
