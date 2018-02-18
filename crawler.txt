@@ -1,0 +1,14 @@
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
+from urllib.error importHTTPError
+try:
+except HTTPError as e:
+
+html = urlopen(url)
+bs0bj= BeautifulSoup(html.read())
+bs0bj.findAll(tag, attributes, recursive, text, limit, keywords)
+bs0bj.find(tag, attributes, recursive, text, keywords)
+list dictionary boolean
+bs0bj.findAll(id='text')
+bs0bj.findAll('',{'id':'text'})
+bs0bj.div.h1
