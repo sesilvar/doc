@@ -1,6 +1,6 @@
 c primer plus 
 java 核心技术
-R 语言实战
+go 语言
 
 oracle 编程艺术
 ocp认证考试指南全册
